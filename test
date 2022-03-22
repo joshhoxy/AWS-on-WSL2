@@ -1,0 +1,13 @@
+<Public IP address>
+	
+	A		B		C
+ec2	13.125.114.137 	13.124.187.178	13.125.74.143
+ec2	
+ec2 
+
+<Private IP address>
+
+        A               B               C
+ec2     10.0.0.221	10.1.0.177	10.2.0.77
+ec2
+ec2

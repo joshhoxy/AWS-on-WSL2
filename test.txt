@@ -1,2 +1,4 @@
 This repository is for storing the data about AWS and its purpose is to study AWS in linux environment
 by Josh
+this is a test for configuring workspace in home
+end

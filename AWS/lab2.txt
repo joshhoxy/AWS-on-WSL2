@@ -1,4 +1,24 @@
 
+
+
+
+
+<AWS VPC Network>
+
+
+
+EC2		Public IP addr 		Private IP addr
+
+VPC A		13.124.65.216		10.0.0.226
+VPC B		13.125.220.121		10.1.0.4
+VPC C		3.35.137.243		10.2.0.33
+
+
+
+
+
+<simulated Datacenter (On-premise)> 
+
 			private IP 		public IP
 
 AppServer 		10.10.1.198		none		

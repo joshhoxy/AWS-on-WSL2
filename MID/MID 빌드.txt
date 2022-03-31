@@ -1,0 +1,39 @@
+archieved server (마이그레이션 된 서버 인스턴스 IP Addr)
+
+
+인스턴스 네임			Private IP
+ofbiz-db.onpremsim.env		10.0.1.230
+ofbiz-web.onpremsim.env		10.0.1.170
+wordpress-web.onpremsim.env	10.0.1.38
+wordpress-db.onpremsim.env	10.0.1.125
+
+
+onprem 레거시에서 migrationed instance 로 dns 및 ssh 연결 설정 
+ADDR=`hostname -I`
+HOST=`hostname`
+sudo touch /tmp/nsupdate.txt
+sudo chmod 666 /tmp/nsupdate.txt
+echo "server dns.onpremsim.env" > /tmp/nsupdate.txt
+echo "update delete $HOST A" >> /tmp/nsupdate.txt
+echo "update add $HOST 86400 A $ADDR" >> /tmp/nsupdate.txt
+echo "update delete $HOST PTR" >> /tmp/nsupdate.txt
+echo "update add $HOST 86400 PTR $ADDR" >> /tmp/nsupdate.txt
+echo "send" >> /tmp/nsupdate.txt
+sudo nsupdate /tmp/nsupdate.txt
+
+
+<Wordpress RDS writer 엔드포인트(DNS value)>
+
+mid-wordpress-instance-1.cyjglmjge8cv.us-west-2.rds.amazonaws.com
+
+
+mysql -u admin -h mid-wordpress-instance-1.cyjglmjge8cv.us-west-2.rds.amazonaws.com -p
+
+
+< creat user wordpress>
+CREATE USER 'wordpress'@'%' IDENTIFIED BY '12345678';
+GRANT ALL ON wordpressdb.* TO 'wordpress'@'%';
+FLUSH PRIVILEGES;
+QUIT
+
+CREATG
